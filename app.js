@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
+const indexRouter = require("./routes/indexRouter");
 
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
-});
+app.use("/", indexRouter);
 
 const port = 8080;
 app.listen(port, (err) => {
