@@ -14,6 +14,10 @@ const messages = [
 const express = require("express");
 const indexRouter = express.Router();
 
+indexRouter.get("/new", (req, res) => {
+  res.render("form", { messages: messages });
+});
+
 indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Messageboard", messages: messages });
 });
