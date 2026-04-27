@@ -6,12 +6,13 @@
     <title><%= title %></title>
   </head>
   <body>
-<button onclick="window.location.href='/new'">Add New</button>
+    <a href="/new">Add New</a>
     <% messages.forEach((message) => { %>
-      <section>    
+      <section>
         <p><%= message.text%></p>
         <p><%= message.user%></p>
         <p><%= message.added%></p>
+      <a href="/message-details/<%= message.id %>">View</a>
       </section>
    <% }) %>
   </body>
