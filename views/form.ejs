@@ -1,6 +1,12 @@
 <h2>Messages</h2>
-<% messages.forEach((message) => { %>
-     <p><%= message.text %></p> 
-<% }) %> 
-
-%>
+<form method="POST" action="/new">
+  <div>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="authorName" />
+  </div>
+  <div>
+    <label for="message">Message:</label>
+    <input type="text" id="message" name="messageText" />
+  </div>
+  <button>Submit</button>
+</form>
