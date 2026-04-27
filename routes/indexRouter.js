@@ -18,6 +18,17 @@ indexRouter.get("/new", (req, res) => {
   res.render("form", { messages: messages });
 });
 
+indexRouter.post("/new", (req, res) => {
+  const formValues = req.body;
+  messages.push({
+    text: formValues.messageText,
+    user: formValues.authorName,
+    added: new Date(),
+  });
+
+  res.redirect("/");
+});
+
 indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Messageboard", messages: messages });
 });
