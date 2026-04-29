@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-  </head>
-  <body>
-    <a href="/new">Add New</a>
+    <%- include("./partials/header.ejs") %>
+    <main>
+      <div class="board-header">
+      <h1><%= title %></h1>
+    <a class="add-new" href="/new">Add New</a>
+  </div>
     <% messages.forEach((message) => { %>
       <section>
         <p><%= message.text%></p>
         <p><%= message.user%></p>
         <p><%= message.added%></p>
-      <a href="/message-details/<%= message.id %>">View</a>
+      <a class="link" href="/message-details/<%= message.id %>">View</a>
       </section>
    <% }) %>
-  </body>
-</html>
+  </main>
+  <%- include("./partials/footer.ejs") %>
+
