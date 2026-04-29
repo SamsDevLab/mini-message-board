@@ -2,13 +2,13 @@ const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: new Date().toLocaleString(),
     id: crypto.randomUUID(),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: new Date().toLocaleString(),
     id: crypto.randomUUID(),
   },
 ];
@@ -25,7 +25,7 @@ indexRouter.post("/new", (req, res) => {
   messages.push({
     text: formValues.messageText,
     user: formValues.authorName,
-    added: new Date(),
+    added: new Date().toLocaleString(),
     id: crypto.randomUUID(),
   });
 
@@ -41,7 +41,7 @@ indexRouter.get("/message-details/:id", (req, res) => {
 });
 
 indexRouter.get("/", (req, res) => {
-  res.render("index.ejs", { title: "Mini Messageboard", messages: messages });
+  res.render("index.ejs", { title: "Mini Message Board", messages: messages });
 });
 
 module.exports = indexRouter;
