@@ -1,8 +1,22 @@
 const pool = require("./pool");
 
-async function getAllUsers() {
-  const { rows } = await pool.query("SELECT * FROM messages");
-  return rows;
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function getAllUsers(retries = 5) {
+  try {
+    const { rows } = await pool.query("SELECT * FROM messages");
+    return rows;
+  } catch (err) {
+    if (retries === 0) {
+      throw err;
+    }
+
+    await wait(1000);
+
+    return getAllUsers(retries - 1);
+  }
 }
 
 async function getMsgDetails(msgId) {

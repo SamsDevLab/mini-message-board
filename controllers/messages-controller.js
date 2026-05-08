@@ -15,7 +15,7 @@ const validateUser = [
 ];
 
 async function getUsernames(req, res) {
-  const messages = await setTimeout(db.getAllUsers(), 20000);
+  const messages = await db.getAllUsers();
 
   res.render("index.ejs", { title: "Mini Message Board", messages: messages });
 }
