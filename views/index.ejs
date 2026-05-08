@@ -9,9 +9,9 @@
   </div>
     <% messages.forEach((message) => { %>
       <section>
-        <p><%= message.text%></p>
-        <p><%= message.user%></p>
-        <p><%= message.added%></p>
+        <p><%= message.messages%></p>
+        <p><%= message.usernames%></p>
+        <p><%= message.dates%></p>
       <a class="link" href="/message-details/<%= message.id %>">View</a>
       </section>
    <% }) %>
