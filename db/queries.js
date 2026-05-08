@@ -13,7 +13,7 @@ async function getAllUsers(retries = 10) {
       throw err;
     }
 
-    await wait(5000);
+    await wait(3000);
 
     return getAllUsers(retries - 1);
   }
