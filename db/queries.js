@@ -4,7 +4,7 @@ function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function getAllUsers(retries = 5) {
+async function getAllUsers(retries = 10) {
   try {
     const { rows } = await pool.query("SELECT * FROM messages");
     return rows;
@@ -13,7 +13,7 @@ async function getAllUsers(retries = 5) {
       throw err;
     }
 
-    await wait(1000);
+    await wait(5000);
 
     return getAllUsers(retries - 1);
   }
