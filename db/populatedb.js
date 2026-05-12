@@ -12,12 +12,12 @@ INSERT INTO messages (usernames, dates, messages)
 VALUES ('Amando', '5/7/2026', 'Hello World!');
 `;
 
-const URL = process.env.DB_URL;
+const databaseUrl = process.env.DATABASE_URL;
 
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `${URL}`,
+    connectionString: `${databaseUrl}`,
   });
   await client.connect();
   await client.query(SQL);
